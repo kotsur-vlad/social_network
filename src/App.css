@@ -7,7 +7,7 @@ body {
     display: grid;
     grid-template-areas:
         "header header"
-        "navigat content";
+        "navbar profile";
     grid-template-columns: 2fr 10fr;
     grid-template-rows: 100px 1fr;
     margin: 0 auto;
@@ -23,12 +23,12 @@ body {
     width: 50px;
 }
 
-.navigation {
-    grid-area: navigat;
+.navbar {
+    grid-area: navbar;
     background-color: lightcyan;
 }
 
-.content {
-    grid-area: content;
+.profile {
+    grid-area: profile;
     background-color: aquamarine;
 }
