@@ -13,22 +13,3 @@ body {
     margin: 0 auto;
     width: 100%;
 }
-
-.header {
-    grid-area: header;
-    background-color: burlywood;
-}
-
-.header img {
-    width: 50px;
-}
-
-.navbar {
-    grid-area: navbar;
-    background-color: lightcyan;
-}
-
-.profile {
-    grid-area: profile;
-    background-color: aquamarine;
-}
