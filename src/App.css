@@ -7,7 +7,7 @@ body {
     display: grid;
     grid-template-areas:
         "header header"
-        "navbar profile";
+        "navbar content";
     grid-template-columns: 2fr 10fr;
     grid-template-rows: 100px 1fr;
     margin: 0 auto;
@@ -15,6 +15,6 @@ body {
 }
 
 .app-wrapper-content {
-    grid-area: profile;
+    grid-area: content;
     background-color: aquamarine;
 }
