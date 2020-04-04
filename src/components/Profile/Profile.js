@@ -4,11 +4,11 @@ import MyPosts from "./MyPosts/MyPosts";
 
 const Profile = () => {
 	return (
-		<article className={styles.profile}>
+		<div className={styles.profile}>
 			<div>Background</div>
 			<div>Avatar + About me</div>
 			<MyPosts/>
-		</article>
+		</div>
 	);
 };
 
