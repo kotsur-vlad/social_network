@@ -11,12 +11,17 @@
 
 }
 
-.dialogList .active {
-	color: gold;
-}
-
 .dialogUserItem {
 	padding: 10px;
+}
+
+.dialogUserItem a {
+	color: white;
+	text-decoration: none;
+}
+
+.dialogUserItem a.activeLink {
+	color: gold;
 }
 
 .dialogItem {
