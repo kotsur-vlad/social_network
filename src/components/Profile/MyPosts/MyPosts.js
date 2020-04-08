@@ -3,6 +3,15 @@ import styles from './MyPosts.module.css'
 import Post from "./Post/Post";
 
 const MyPosts = () => {
+
+	let posts = [
+		{message: "I want to learn React", likeCount: 27},
+		{message: "I need new friends", likeCount: 33},
+		{message: "Hi, it\'s my first post", likeCount: 99},
+	];
+
+	let postsElements = posts.map (post => <Post message={post.message} likeCount={post.likeCount}/>);
+
 	return (
 		<div className={styles.myPosts}>
 			<h2>
@@ -13,9 +22,7 @@ const MyPosts = () => {
 				<button>Add new post</button>
 			</div>
 			<div className={styles.postsItems}>
-				<Post message={"I want to learn React"} likeCount={27}/>
-				<Post message={"I need new friends"} likeCount={33}/>
-				<Post message={"Hi, it\'s my first post"} likeCount={99}/>
+				{postsElements}
 			</div>
 		</div>
 	);
