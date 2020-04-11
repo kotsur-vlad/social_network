@@ -7,7 +7,7 @@ const MyPosts = () => {
 	let posts = [
 		{message: "I want to learn React", likeCount: 27},
 		{message: "I need new friends", likeCount: 33},
-		{message: "Hi, it\'s my first post", likeCount: 99},
+		{message: "Hi, it's my first post", likeCount: 99},
 	];
 
 	let postsElements = posts.map (post => <Post message={post.message} likeCount={post.likeCount}/>);

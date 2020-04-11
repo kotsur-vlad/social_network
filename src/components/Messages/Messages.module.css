@@ -10,20 +10,3 @@
 .dialogList {
 
 }
-
-.dialogUserItem {
-	padding: 10px;
-}
-
-.dialogUserItem a {
-	color: white;
-	text-decoration: none;
-}
-
-.dialogUserItem a.activeLink {
-	color: gold;
-}
-
-.dialogItem {
-	padding: 10px;
-}
