@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 import styles from './MyPosts.module.css'
 import Post from "./Post/Post";
@@ -24,3 +25,7 @@ const MyPosts = (props) => {
 };
 
 export default MyPosts;
+
+MyPosts.propTypes = {
+	posts: PropTypes.arrayOf (PropTypes.object)
+};

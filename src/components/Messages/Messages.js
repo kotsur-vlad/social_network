@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import styles from "./Messages.module.css";
 import DialogItem from "./DialogItem/DialogItem";
@@ -8,7 +9,7 @@ const Messages = (props) => {
 	let dialogElements = props.state.dialogs.map (dialog => <DialogItem message={dialog.message}/>);
 
 	let dialogListElements = props.state.dialogLists.map (dialogList => <DialogUserItem id={dialogList.id}
-																				  name={dialogList.name}/>);
+																						name={dialogList.name}/>);
 
 	return (
 		<div className={styles.messages}>
@@ -25,3 +26,10 @@ const Messages = (props) => {
 };
 
 export default Messages;
+
+Messages.propTypes = {
+	state: PropTypes.shape ({
+		dialogs: PropTypes.arrayOf (PropTypes.object),
+		dialogLists: PropTypes.arrayOf (PropTypes.object)
+	})
+};

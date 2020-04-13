@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 import styles from './Profile.module.css'
 import MyPosts from "./MyPosts/MyPosts";
@@ -15,3 +16,9 @@ const Profile = (props) => {
 };
 
 export default Profile;
+
+Profile.propTypes = {
+	state: PropTypes.shape ({
+		posts: PropTypes.array,
+	})
+};

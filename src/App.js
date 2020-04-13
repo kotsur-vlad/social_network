@@ -1,5 +1,6 @@
 import React from 'react';
 import {Route} from "react-router-dom";
+import PropTypes from "prop-types";
 
 import './App.css';
 import Header from "./components/Header/Header";
@@ -22,3 +23,10 @@ const App = (props) => {
 };
 
 export default App;
+
+App.propTypes = {
+	state: PropTypes.shape ({
+		profilePage: PropTypes.object,
+		messagesPage: PropTypes.object
+	})
+};

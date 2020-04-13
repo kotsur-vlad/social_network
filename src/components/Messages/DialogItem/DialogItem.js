@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import styles from "./DialogItem.module.css"
 
@@ -9,3 +10,7 @@ const DialogItem = (props) => {
 };
 
 export default DialogItem;
+
+DialogItem.propTypes = {
+	message: PropTypes.string
+};
