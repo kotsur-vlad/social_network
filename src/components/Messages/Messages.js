@@ -1,27 +1,14 @@
 import React from "react";
+
 import styles from "./Messages.module.css";
 import DialogItem from "./DialogItem/DialogItem";
 import DialogUserItem from "./DialogUserItem/DialogUserItem";
 
-const Messages = () => {
+const Messages = (props) => {
+	let dialogElements = props.state.dialogs.map (dialog => <DialogItem message={dialog.message}/>);
 
-	let dialogs = [
-		{id: 1, message: "Hi"},
-		{id: 2, message: "Hello"},
-		{id: 3, message: "How are u doing?"},
-		{id: 4, message: "Ty, nice"}
-	];
-
-	let dialogElements = dialogs.map( dialog => <DialogItem message={dialog.message}/>	);
-
-	let dialogLists = [
-		{id: 1, name: "Kim"},
-		{id: 2, name: "Tim"},
-		{id: 3, name: "Vasya"},
-		{id: 4, name: "Putin"}
-	];
-
-	let dialogListElements = dialogLists.map( dialogList => <DialogUserItem id={dialogList.id} name={dialogList.name}/>	);
+	let dialogListElements = props.state.dialogLists.map (dialogList => <DialogUserItem id={dialogList.id}
+																				  name={dialogList.name}/>);
 
 	return (
 		<div className={styles.messages}>
