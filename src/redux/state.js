@@ -1,9 +1,9 @@
-let state = {
+export let state = {
 	profilePage: {
 		posts: [
-			{message: "I want to learn React", likeCount: 27},
-			{message: "I need new friends", likeCount: 33},
-			{message: "Hi, it's my first post", likeCount: 99},
+			{id: 1, message: "I want to learn React", likeCount: 27},
+			{id: 2, message: "I need new friends", likeCount: 33},
+			{id: 3, message: "Hi, it's my first post", likeCount: 99},
 		]
 	},
 	messagesPage: {
@@ -22,4 +22,11 @@ let state = {
 	}
 };
 
-export default state;
+export let addPost = (postMessage) => {
+	let newPost = {
+		id: 4,
+		message: postMessage,
+		likeCount: 0
+	}
+	state.profilePage.posts.push(newPost);
+};
