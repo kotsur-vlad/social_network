@@ -3,10 +3,14 @@
 	grid-template-columns: 3fr 1fr;
 }
 
-.dialog {
+.messagesElements {
 
 }
 
-.dialogList {
+.dialogs {
+
+}
+
+.newMessage {
 
 }
