@@ -1,12 +1,12 @@
-.dialogUserItem {
+.dialogItem {
 	padding: 10px;
 }
 
-.dialogUserItem a {
+.dialogItem a {
 	color: white;
 	text-decoration: none;
 }
 
-.dialogUserItem a.activeLink {
+.dialogItem a.activeLink {
 	color: gold;
 }

@@ -19,7 +19,7 @@ const MyPosts = (props) => {
 		props.dispatch (action);
 	};
 
-	let postsElements = props.posts.map (post => <Post message={post.message} likeCount={post.likeCount}/>);
+	let postsElements = props.posts.map (p => <Post message={p.post} likeCount={p.likeCount}/>);
 
 	return (
 		<div className={styles.myPosts}>
