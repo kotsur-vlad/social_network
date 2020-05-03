@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import styles from "./Messages.module.css";
 import MessageItem from "./DialogItem/MessageItem";
 import DialogItem from "./DialogUserItem/DialogItem";
-import {sendNewMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/state";
+import {sendNewMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/messagesReducer";
 
 const Messages = (props) => {
 	let messagesElements = props.state.messages.map (mess => <MessageItem message={mess.message}/>);
@@ -28,7 +28,7 @@ const Messages = (props) => {
 				</div>
 				<div className={styles.newMessage}>
 					<textarea placeholder="Type your message" value={props.state.newMessageText}
-							  onChange={onNewMessageChange}></textarea>
+							  onChange={onNewMessageChange}/>
 					<button onClick={onSendMessageClick}>Send</button>
 				</div>
 			</div>
