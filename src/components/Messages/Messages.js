@@ -4,19 +4,20 @@ import PropTypes from "prop-types";
 import styles from "./Messages.module.css";
 import MessageItem from "./DialogItem/MessageItem";
 import DialogItem from "./DialogUserItem/DialogItem";
-import {sendNewMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/messagesReducer";
 
 const Messages = (props) => {
-	let messagesElements = props.state.messages.map (mess => <MessageItem message={mess.message}/>);
 
-	let dialogsElements = props.state.dialogs.map (dial => <DialogItem id={dial.id} name={dial.name}/>);
+	let messagesElements = props.messages.map (mess => <MessageItem message={mess.message}/>);
+
+	let dialogsElements = props.dialogs.map (dial => <DialogItem id={dial.id} name={dial.name}/>);
 
 	let onSendMessageClick = () => {
-		props.dispatch(sendNewMessageActionCreator());
+		props.sendMessage();
 	};
 
 	let onNewMessageChange = (e) => {
-		props.dispatch(updateNewMessageTextActionCreator(e.currentTarget.value));
+		let mewMessage = e.currentTarget.value;
+		props.updateNewMessageText(mewMessage);
 	};
 
 	return (
@@ -27,7 +28,7 @@ const Messages = (props) => {
 					{messagesElements}
 				</div>
 				<div className={styles.newMessage}>
-					<textarea placeholder="Type your message" value={props.state.newMessageText}
+					<textarea placeholder="Type your message" value={props.newMessageText}
 							  onChange={onNewMessageChange}/>
 					<button onClick={onSendMessageClick}>Send</button>
 				</div>
@@ -45,8 +46,9 @@ const Messages = (props) => {
 export default Messages;
 
 Messages.propTypes = {
-	state: PropTypes.shape ({
-		messages: PropTypes.arrayOf (PropTypes.object),
-		dialogs: PropTypes.arrayOf (PropTypes.object)
-	})
+	messages: PropTypes.arrayOf(PropTypes.object),
+	dialogs: PropTypes.arrayOf(PropTypes.object),
+	newMessageText: PropTypes.string,
+	sendMessage: PropTypes.func,
+	updateNewMessageText: PropTypes.func
 };

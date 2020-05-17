@@ -1,25 +1,21 @@
-import React from 'react';
+import React from "react";
 import PropTypes from "prop-types";
 
 import styles from './MyPosts.module.css'
 import Post from "./Post/Post";
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../redux/profileReducer";
 
 const MyPosts = (props) => {
 
-	let newPostElement = React.createRef ();
-
 	let onAddPostClick = () => {
-		props.dispatch (addPostActionCreator ());
+		props.addPost();
 	};
 
-	let onNewPostChange = () => {
-		let mewPostMessage = newPostElement.current.value;
-		let action = updateNewPostTextActionCreator (mewPostMessage);
-		props.dispatch (action);
+	let onNewPostChange = (e) => {
+		let mewPostMessage = e.currentTarget.value;
+		props.updateNewPostText(mewPostMessage);
 	};
 
-	let postsElements = props.posts.map (p => <Post message={p.post} likeCount={p.likeCount}/>);
+	let postsElements = props.posts.map(p => <Post message={p.post} likeCount={p.likeCount}/>);
 
 	return (
 		<div className={styles.myPosts}>
@@ -27,7 +23,7 @@ const MyPosts = (props) => {
 				My posts
 			</h2>
 			<div>
-				<textarea onChange={onNewPostChange} ref={newPostElement} value={props.newPostText}/>
+				<textarea onChange={onNewPostChange} value={props.newPostText}/>
 				<button onClick={onAddPostClick}>Add new post</button>
 			</div>
 			<div className={styles.postsItems}>
@@ -40,5 +36,8 @@ const MyPosts = (props) => {
 export default MyPosts;
 
 MyPosts.propTypes = {
-	posts: PropTypes.arrayOf (PropTypes.object)
+	posts: PropTypes.arrayOf(PropTypes.object),
+	newPostText: PropTypes.string,
+	addPost: PropTypes.func,
+	updateNewPostText: PropTypes.func
 };
