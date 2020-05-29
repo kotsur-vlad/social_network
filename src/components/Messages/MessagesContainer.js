@@ -1,29 +1,28 @@
 import React from "react";
-// import PropTypes from "prop-types";
 
 import {sendNewMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/messagesReducer";
 import Messages from "./Messages";
+import {connect} from "react-redux";
 
-const MessagesContainer = (props) => {
-
-	let state = props.store.getState();
-
-	let sendMessage = () => {
-		props.store.dispatch(sendNewMessageActionCreator());
-	};
-
-	let newMessageText = (mewMessage) => {
-		props.store.dispatch(updateNewMessageTextActionCreator(mewMessage));
-	};
-
-	return (
-		<Messages updateNewMessageText={newMessageText} sendMessage={sendMessage} messages={state.messagesPage.messages}
-				  dialogs={state.messagesPage.dialogs} newMessageText={state.messagesPage.newMessageText}/>
-	);
+const mapStateToProps = (state) => {
+	return {
+		messages: state.messagesPage.messages,
+		dialogs: state.messagesPage.dialogs,
+		newMessageText: state.messagesPage.newMessageText
+	}
 };
 
-export default MessagesContainer;
+const mapDispatchToProps = (dispatch) => {
+	return {
+		updateNewMessageText: (mewMessage) => {
+			dispatch(updateNewMessageTextActionCreator(mewMessage));
+		},
+		sendMessage: () => {
+			dispatch(sendNewMessageActionCreator());
+		}
+	}
+};
 
-// MessagesContainer.propTypes = {
-// 	store: PropTypes.objectOf(PropTypes.object)
-// };
+const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages)
+
+export default MessagesContainer;

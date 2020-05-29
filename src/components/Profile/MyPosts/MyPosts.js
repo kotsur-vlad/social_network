@@ -15,7 +15,7 @@ const MyPosts = (props) => {
 		props.updateNewPostText(mewPostMessage);
 	};
 
-	let postsElements = props.posts.map(p => <Post message={p.post} likeCount={p.likeCount}/>);
+	let postsElements = props.posts.map(p => <Post message={p.post} likeCount={p.likeCount} key={p.id}/>);
 
 	return (
 		<div className={styles.myPosts}>

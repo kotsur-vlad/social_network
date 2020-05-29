@@ -7,9 +7,9 @@ import DialogItem from "./DialogUserItem/DialogItem";
 
 const Messages = (props) => {
 
-	let messagesElements = props.messages.map (mess => <MessageItem message={mess.message}/>);
+	let messagesElements = props.messages.map (mess => <MessageItem message={mess.message} key={mess.id}/>);
 
-	let dialogsElements = props.dialogs.map (dial => <DialogItem id={dial.id} name={dial.name}/>);
+	let dialogsElements = props.dialogs.map (dial => <DialogItem id={dial.id} name={dial.name} key={dial.id}/>);
 
 	let onSendMessageClick = () => {
 		props.sendMessage();

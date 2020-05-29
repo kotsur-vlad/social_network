@@ -6,12 +6,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import store from "./redux/store-redux";
+import {Provider} from "react-redux";
 
 let rerenderEntireTree = () => {
 	ReactDOM.render(
 		<React.StrictMode>
 			<BrowserRouter>
-				<App store={store}/>
+				<Provider store={store}>
+					<App store={store}/>
+				</Provider>
 			</BrowserRouter>
 		</React.StrictMode>,
 		document.getElementById('root')
