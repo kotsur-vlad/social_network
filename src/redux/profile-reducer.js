@@ -1,5 +1,5 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const ADD_POST = "ADD_POST";
+const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
 
 let initialState = {
 	posts: [
@@ -18,19 +18,23 @@ const profileReducer = (state = initialState, action) => {
 				post: state.newPostText,
 				likeCount: 0
 			}
-			state.posts.push(newPost);
-			state.newPostText = "";
-			return state;
+			return {
+				...state,
+				newPostText: "",
+				posts: [...state.posts, newPost]
+			}
 		case UPDATE_NEW_POST_TEXT:
-			state.newPostText = action.postText;
-			return state;
+			return {
+				...state,
+				newPostText: action.postText
+			}
 		default :
 			return state;
 	}
 };
 
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (mewPostMessage) => ({
+export const addPostAC = () => ({type: ADD_POST})
+export const updateNewPostTextAC = (mewPostMessage) => ({
 	type: UPDATE_NEW_POST_TEXT,
 	postText: mewPostMessage
 })

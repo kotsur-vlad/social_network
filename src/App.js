@@ -7,16 +7,18 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import MessagesContainer from "./components/Messages/MessagesContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
-const App = (props) => {
+const App = () => {
 
 	return (
 		<div className="app-wrapper">
 			<Header/>
 			<Navbar/>
 			<div className="app-wrapper-content">
-				<Route path={"/profile"} render={ () => <Profile store={props.store}/> }/>
-				<Route path={"/messages"} render={ () => <MessagesContainer store={props.store}/> }/>
+				<Route path={"/profile"} render={() => <Profile/>}/>
+				<Route path={"/messages"} render={() => <MessagesContainer/>}/>
+				<Route path={"/users"} render={() => <UsersContainer />}/>
 			</div>
 		</div>
 	);

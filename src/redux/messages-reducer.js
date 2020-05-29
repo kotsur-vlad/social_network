@@ -1,5 +1,5 @@
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
-const SEND_NEW_MESSAGE = "SEND-NEW-MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE_NEW_MESSAGE_TEXT";
+const SEND_NEW_MESSAGE = "SEND_NEW_MESSAGE";
 
 let initialState = {
 	messages: [
@@ -20,25 +20,29 @@ let initialState = {
 const messagesReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case UPDATE_NEW_MESSAGE_TEXT:
-			state.newMessageText = action.messageText;
-			return state;
+			return {
+				...state,
+				newMessageText: action.messageText
+			}
 		case SEND_NEW_MESSAGE:
 			let newMessage = {
-				id: 5,
+				id: 6,
 				message: state.newMessageText
 			}
-			state.messages.push(newMessage);
-			state.newMessageText = "";
-			return state;
+			return {
+				...state,
+				newMessageText: "",
+				messages: [...state.messages, newMessage]
+			}
 		default :
 			return state;
 	}
 };
 
-export const updateNewMessageTextActionCreator = (mewMessage) => ({
+export const updateNewMessageTextAC = (mewMessage) => ({
 	type: UPDATE_NEW_MESSAGE_TEXT,
 	messageText: mewMessage
 })
-export const sendNewMessageActionCreator = () => ({type: SEND_NEW_MESSAGE})
+export const sendNewMessageAC = () => ({type: SEND_NEW_MESSAGE})
 
 export default messagesReducer;

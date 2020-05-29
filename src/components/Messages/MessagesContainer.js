@@ -1,8 +1,7 @@
-import React from "react";
-
-import {sendNewMessageActionCreator, updateNewMessageTextActionCreator} from "../../redux/messagesReducer";
-import Messages from "./Messages";
 import {connect} from "react-redux";
+
+import {sendNewMessageAC, updateNewMessageTextAC} from "../../redux/messages-reducer";
+import Messages from "./Messages";
 
 const mapStateToProps = (state) => {
 	return {
@@ -15,10 +14,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		updateNewMessageText: (mewMessage) => {
-			dispatch(updateNewMessageTextActionCreator(mewMessage));
+			dispatch(updateNewMessageTextAC(mewMessage));
 		},
 		sendMessage: () => {
-			dispatch(sendNewMessageActionCreator());
+			dispatch(sendNewMessageAC());
 		}
 	}
 };
